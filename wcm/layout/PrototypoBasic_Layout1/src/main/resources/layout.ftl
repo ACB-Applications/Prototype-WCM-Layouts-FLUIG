@@ -35,14 +35,6 @@
 					<div class="editable-slot slotfull layout-1-1" id="slotFull3">
 						<@wcm.renderSlot id="SlotE" editableSlot="true"/>
 					</div>
-					<!-- Slot 4 -->
-					<div class="editable-slot slotfull layout-1-1" id="slotFull4">
-						<@wcm.renderSlot id="SlotF" editableSlot="true"/>
-					</div>
-					<!-- Slot 5 -->
-					<div class="editable-slot slotfull layout-1-1" id="slotFull5">
-						<@wcm.renderSlot id="SlotG" editableSlot="true"/>
-					</div>
 				</div>	
 			</div>
 			<!-- FIM DAS WIDGETS DO LAYOUT -->
