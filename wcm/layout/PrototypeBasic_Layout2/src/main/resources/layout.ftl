@@ -14,7 +14,7 @@
 				<div id="edicaoPagina" class="clearfix">
 			<#else>
 				<div id="visualizacaoPagina" class="clearfix">	
-	    </#if>
+	    </#if>				
 				<!-- Slot -->	
 				<div class="editable-slot slotfull layout-1-1" id="slotFull">
 						<@wcm.renderSlot id="SlotA" editableSlot="true"/>
@@ -55,9 +55,11 @@
 							<@wcm.renderSlot id="SlotI" editableSlot="true"/>
 					</div>
 				</div>
-				<!-- Slot -->
-				<div class="editable-slot slotfull layout-2-3left" id="slotFull">
-					<@wcm.renderSlot id="SlotD" editableSlot="true"/>
+				<div class="layout-2-3left clearfix" id="all-slots-left">	
+					<!-- Slot -->
+					<div class="editable-slot slotfull layout-1-1" id="slotFull">
+						<@wcm.renderSlot id="SlotD" editableSlot="true"/>
+					</div>
 				</div>	
 			</div>
 			<!-- FIM DAS WIDGETS DO LAYOUT -->
