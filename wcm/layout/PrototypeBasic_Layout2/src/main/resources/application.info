@@ -15,4 +15,5 @@ slot.SlotInstantSearch=suggestsearch
 slot.SlotLogin=sociallogin
 slot.SlotMenu=menu
 slot.SlotUsePolicy=usepolicy
+application.category=APPLICATION
 application.icon=custom-icon2.png
