@@ -1,7 +1,7 @@
 application.type=layout
 application.code=PrototypeBasic_Layout2
 application.title=Prototype Basic Layout 2
-application.description=Prototype Basic Layout 2
+application.description=Modelo de layout voltado para o destaque do widget slider. 
 application.category=SYSTEM
 application.renderer=freemarker
 developer.code=BH-1HMFM93
@@ -15,4 +15,4 @@ slot.SlotInstantSearch=suggestsearch
 slot.SlotLogin=sociallogin
 slot.SlotMenu=menu
 slot.SlotUsePolicy=usepolicy
-application.icon=icon.png
+application.icon=custom-icon2.png
