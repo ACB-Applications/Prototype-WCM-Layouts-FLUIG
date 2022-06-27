@@ -15,11 +15,6 @@
 			<#else>
 				<div id="visualizacaoPagina" class="clearfix">	
 	    </#if>	
-				<!-- Titulo da página -->
-				<div class="slotfull layout-1-1">
-					<span class="titleArea">${i18n.getTranslation('wcm.layoutarsocial.title')}</span>
-					<h2 class="pageTitle">${pageTitle}</h2>
-				</div>
 				<div class="editable-slot slotfull layout-1-1" id="slotFull1">
 						<@wcm.renderSlot id="SlotA" editableSlot="true"/>
 				</div>
@@ -38,20 +33,23 @@
 				<div class="layout-1-3right clearfix" id="all-slots-right">	
 					<!-- Slot 3 -->
 					<div class="editable-slot slotfull layout-1-1" id="slotFull4">
-							<@wcm.renderSlot id="SlotD" editableSlot="true"/>
+							<@wcm.renderSlot id="SlotE" editableSlot="true"/>
 					</div>
 					<div class="editable-slot slotfull layout-1-1" id="slotFull4">
-							<@wcm.renderSlot id="SlotD1" editableSlot="true"/>
+							<@wcm.renderSlot id="SlotF" editableSlot="true"/>
+					</div>
+					<div class="editable-slot slotfull layout-1-1" id="slotFull4">
+							<@wcm.renderSlot id="SlotG" editableSlot="true"/>
+					</div>
+					<div class="editable-slot slotfull layout-1-1" id="slotFull4">
+							<@wcm.renderSlot id="SlotH" editableSlot="true"/>
+					</div>
+					<div class="editable-slot slotfull layout-1-1" id="slotFull4">
+							<@wcm.renderSlot id="SlotI" editableSlot="true"/>
 					</div>
 				</div>
-				<div class="editable-slot slotfull layout-2-3left" id="slotFull5">
-						<@wcm.renderSlot id="SlotE" editableSlot="true"/>
-				</div>
-				<div class="editable-slot slotfull layout-1-1" id="slotFull6">
-						<@wcm.renderSlot id="SlotF" editableSlot="true"/>
-				</div>
-				<div class="editable-slot slotfull layout-1-1" id="slotFull6">
-						<@wcm.renderSlot id="SlotG" editableSlot="true"/>
+				<div class="editable-slot slotfull layout-2-3left" id="slotFull1">
+					<@wcm.renderSlot id="SlotD" editableSlot="true"/>
 				</div>	
 			</div>
 			<!-- FIM DAS WIDGETS DO LAYOUT -->
