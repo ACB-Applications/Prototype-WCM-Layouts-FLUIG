@@ -1,7 +1,7 @@
 application.type=layout
 application.code=PrototypeBasic_Layout3
-application.title=Prototype Basic Layout version 3
-application.description=Prototype Basic Layout version 3
+application.title=Layout Prototype - Model 3
+application.description=Recomendado para portais com uma quantidade bem ampla de conteúdo corporativo, seja processos ou documentos.
 application.category=SYSTEM
 application.renderer=freemarker
 developer.code=BH-1HMFM93
@@ -16,6 +16,6 @@ slot.SlotLogin=sociallogin
 slot.SlotMenu=menu
 slot.SlotUsePolicy=usepolicy
 application.category=APPLICATION
-application.icon=icon.png
+application.icon=custom-icon.png
 application.resource.css.1=/resources/css/wcm_widget.css
 application.resource.js.2=/resources/js/wcm_widgets.js
