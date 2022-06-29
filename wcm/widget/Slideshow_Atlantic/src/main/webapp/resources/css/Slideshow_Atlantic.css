@@ -1,0 +1,18 @@
+/* Coloque aqui seu codigo CSS */
+.carousel-indicators li{
+	background-color: white !important;
+    border: 1px solid !important; 
+}
+
+.carousel-indicators .active {
+	background-color: black !important;
+}
+
+#carouselAtlantic{
+	padding: 0px;
+}
+
+.carousel-control{
+	background-color: transparent !important;
+	box-shadow: 0px 0px 0px 0px !important;
+}
