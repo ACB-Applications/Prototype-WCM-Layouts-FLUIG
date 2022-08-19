@@ -17,3 +17,5 @@ slot.SlotMenu=menu
 slot.SlotUsePolicy=usepolicy
 application.category=APPLICATION
 application.icon=custom-icon2.png
+application.resource.css.1=/resources/css/wcm_widget.css
+application.resource.js.2=/resources/js/wcm_widgets.js
