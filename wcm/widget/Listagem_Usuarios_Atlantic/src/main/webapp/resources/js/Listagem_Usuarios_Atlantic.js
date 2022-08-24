@@ -3,15 +3,80 @@ var Listagem_Usuarios_Atlantic = SuperWidget.extend({
     variavelNumerica: null,
     variavelCaracter: null,
     array_usuarios: [],
-
+    inicio_usuarios: 1,
+    final_usuarios: 5,
+    length_array_usuarios: null,
+    loading: null,
     //método iniciado quando a widget é carregada
     init: function() {
+    	this.loading = FLUIGC.loading('#Listagem_Usuarios_Atlantic_' + this.instanceId);
     	this.consultarUsuarios(); //chamada função para consultar os usuários do grupo SCI
+    	$('#btn_anterior').attr('disabled','true');
     },
     
     
+    consultarProximosUsuarios: function(){
+    	var that = this;
+    	$('#btn_proximo').removeAttr('disabled');
+    	$('#btn_anterior').removeAttr('disabled');
+    	finalusuarios = that.final_usuarios;
+    	finalusuarioscom5 = finalusuarios+5;
+    	if(finalusuarioscom5 > that.length_array_usuarios){
+    		that.final_usuarios = finalusuarioscom5;
+    		$('#btn_proximo').attr('disabled','true');
+    	}else{
+    		finalusuarios = finalusuarios+5;
+    		that.final_usuarios = finalusuarios;
+    	}
+    	iniciousuarios = that.inicio_usuarios;
+    	iniciousuarioscom5 = iniciousuarios+5;
+    	if(iniciousuarioscom5 > that.length_array_usuarios){
+    		that.inicio_usuarios = 1;
+    		$('#btn_anterior').attr('disabled','true');
+    	}else{
+    		that.inicio_usuarios = iniciousuarioscom5;
+    	}
+    	/*if(iniciousuarioscom5 > that.length_array_usuarios){
+    		that.inicio_usuarios = iniciousuarios;
+    	}*/
+    	that.renderizarUsuarios();
+    	
+    },
+    
+    consultarUsuariosAnteriores: function(){
+    	var that = this;
+    	$('#btn_proximo').removeAttr('disabled');
+    	$('#btn_anterior').removeAttr('disabled');
+    	finalusuarios = that.final_usuarios;
+    	finalusuarioscom5 = finalusuarios-5;
+    	if(finalusuarioscom5 > that.length_array_usuarios){
+    		that.final_usuarios = finalusuarioscom5;
+    		$('#btn_proximo').attr('disabled','true');
+    	}else{
+    		if(finalusuarioscom5 < 5){
+    			that.final_usuarios = 5;
+    		}else{
+    			that.final_usuarios = finalusuarioscom5;
+    		}
+    		
+    	}
+    	iniciousuarios = that.inicio_usuarios;
+    	iniciousuarioscom5 = iniciousuarios-5;
+    	if(iniciousuarioscom5 <= 1){
+    		that.inicio_usuarios = 1;
+    		$('#btn_anterior').attr('disabled','true');
+    	}else{
+    		that.inicio_usuarios = iniciousuarioscom5;
+    	}
+    	/*if(iniciousuarioscom5 > that.length_array_usuarios){
+    		that.inicio_usuarios = iniciousuarioscom5;
+    	}*/
+    	that.renderizarUsuarios();
+    },
+    
     //função que buscará os usuários do grupo SCI, armazenará a matrícula de cada um deles em um objeto informacoes_usuario e posteriormente os salvará no array_usuarios.
     consultarUsuarios: function(){
+    	this.loading.show();
     	var that = this;
     	var papel_usuario = "";
     	$.ajax({
@@ -72,11 +137,23 @@ var Listagem_Usuarios_Atlantic = SuperWidget.extend({
     renderizarUsuarios: function(){
     	var that = this;
     	var template = $(".usuarios-tpl").html();
+    	that.length_array_usuarios = Listagem_Usuarios_Atlantic.array_usuarios.length;
+    	var inicio_usuarios_tela = that.inicio_usuarios;
+    	var final_usuarios_tela = that.final_usuarios;
+    	if(final_usuarios_tela > Listagem_Usuarios_Atlantic.array_usuarios.length){
+    		final_usuarios_tela = Listagem_Usuarios_Atlantic.array_usuarios.length;
+    	}
+    	var array_usuarios_tela = [];
+    	for (var x=inicio_usuarios_tela;x<=final_usuarios_tela;x++){
+    		array_usuarios_tela.push(Listagem_Usuarios_Atlantic.array_usuarios[x-1]);
+    	}
     	var html = Mustache.to_html(template, {
-    		usuarios : Listagem_Usuarios_Atlantic.array_usuarios
+    		usuarios : array_usuarios_tela
     	});
     	//$(".aniversariantes-div").append(html);
+    	$('#usuarios-wrapper_' + this.instanceId).html("");
     	$('#usuarios-wrapper_' + this.instanceId).append(html);
+    	this.loading.hide();
     },
     
     //Esta função captura a imagem retornada pela consulta da api e a converte para base64 para conseguir ser utilizada no template em tela. Chama a função atualizarArrayUsuarios que atualiza o array com a imagem de cada usuário.
@@ -92,6 +169,7 @@ var Listagem_Usuarios_Atlantic = SuperWidget.extend({
   			
   			var concluido = Listagem_Usuarios_Atlantic.array_usuarios.findIndex(b => b.status == false);
   	    		if(concluido < 0){
+  	    			console.log(Listagem_Usuarios_Atlantic.array_usuarios);
   	        		that.renderizarUsuarios();
   	        	}
   	    	
@@ -117,7 +195,9 @@ var Listagem_Usuarios_Atlantic = SuperWidget.extend({
     //BIND de eventos
     bindings: {
         local: {
-            'execute': ['click_executeAction']
+            'execute': ['click_executeAction'],
+            'previoususers': ['click_consultarUsuariosAnteriores'],
+            'nextusers': ['click_consultarProximosUsuarios']
         },
         global: {}
     },
