@@ -16,20 +16,19 @@
 	        	<label for="TituloURL_${instanceId}">Título da URL</label>
 	        	<input class="form-control" id="TituloURL_${instanceId}" value="${TituloURL!''}" placeholder="Ex.: Hello World">
 	        	<br />	        	
-    			<div class="btn-group">
+    		<div class="btn-group">
 					<button type="button" class="btn btn-default">Adicionar</button>		
 				</div>
 				<div class="btn-group">
 					<button type="button" class="btn btn-primary">Salvar</button>
 				</div>
-    		</div>
+    	</div>
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col-md-12">
-			<ul class="list-group" id="ListaLinks_${instanceId}" style="margin-bottom: 4px;">
-			</ul>
+			<ul class="list-group" id="ListaLinks_${instanceId}" style="margin-bottom: 4px;"></ul>
 		</div>
 	</div>
 

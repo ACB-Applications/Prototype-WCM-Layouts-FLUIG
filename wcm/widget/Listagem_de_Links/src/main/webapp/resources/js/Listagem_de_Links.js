@@ -20,15 +20,15 @@ var Widget_Listagem_de_links = SuperWidget.extend({
     dadosCampos.EnderecoURL = $("EnderecoURL_" + this.instanceId).val();
     dadosCampos.TituloURL = $("TituloURL_" + this.instanceId).val();
 
-    var templateList = (dadosCampos) => {
+    var Lista = (dadosCampos) => {
       `<li class="list-group-item">
-            <i class="flaticon flaticon-link icon-sm" aria-hidden="true"></i> 
-            &nbsp; ${dadosCampos.TituloURL} &nbsp; 
-            <button type="button" style="display: absolute; float: right; border: none; background: none;">
-                <i class="flaticon flaticon-minus icon-sm" aria-hidden="true"></i>
-            </button>
+          <i class="flaticon flaticon-link icon-sm" aria-hidden="true"></i> 
+          &nbsp; ${dadosCampos.TituloURL} &nbsp; 
+          <button type="button" style="display: absolute; float: right; border: none; background: none;">
+            <i class="flaticon flaticon-minus icon-sm" aria-hidden="true"></i>
+          </button>
         </li>
-        `;
+      `;
     };
   },
 });

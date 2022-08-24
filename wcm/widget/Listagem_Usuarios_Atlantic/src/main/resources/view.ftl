@@ -5,7 +5,7 @@
 
 <script type="text/template" class="usuarios-tpl">
 {{#usuarios}}
-<div class="col-xs-12>
+<div class="col-xs-12">
         <div class="media">
             <ul class="list-group">
                 <li class="fs-no-border list-group-item fs-no-padding-right">
