@@ -1,8 +1,8 @@
 application.type=widget
 application.code=Listagem_de_Links
 application.title=Lista de Links
-application.description=Widget de listagem de links
-application.category=Atlantic
+application.description=Widget para listar links
+application.category=WCMLab
 application.renderer=freemarker
 developer.code=BH-1HMFM93
 developer.name=marlon.teodoro
