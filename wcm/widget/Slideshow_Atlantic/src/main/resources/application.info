@@ -1,8 +1,8 @@
 application.type=widget
 application.code=Slideshow_Atlantic
-application.title=Slideshow Atlantic
+application.title=Slideshow Atlantic (WCMLab)
 application.description=Slideshow Atlantic
-application.category=Atlantic
+application.category=WCMLab
 application.renderer=freemarker
 developer.code=JVN060104842
 developer.name=lucas.schmoeller
