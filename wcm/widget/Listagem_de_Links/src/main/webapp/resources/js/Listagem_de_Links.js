@@ -1,4 +1,4 @@
-var Widget_Listagem_de_links = SuperWidget.extend({
+var Listagem_de_links = SuperWidget.extend({
   //variáveis da widget
   variavelNumerica: null,
   variavelCaracter: null,
@@ -22,14 +22,14 @@ var Widget_Listagem_de_links = SuperWidget.extend({
       that.removerFicha(id);
     });
     if (!this.isEditMode) {
-      Widget_Listagem_de_links.liEnderecosView = this.liEnderecos;
-      Widget_Listagem_de_links.liTitulosView = this.liTitulos;
-      Widget_Listagem_de_links.liIdsView = this.liIds;
+      Listagem_de_links.liEnderecosView = this.liEnderecos;
+      Listagem_de_links.liTitulosView = this.liTitulos;
+      Listagem_de_links.liIdsView = this.liIds;
       console.log("executou");
       that.renderizarCards();
     } else {
       if (this.contadorLinkView != "") {
-        Widget_Listagem_de_links.contadorLink = this.contadorLinkView;
+        Listagem_de_links.contadorLink = this.contadorLinkView;
       }
       that.atualizarTabela();
     }
@@ -204,18 +204,18 @@ var Widget_Listagem_de_links = SuperWidget.extend({
         titulos[x] +
         ' &nbsp;</a><button type="button" style="display: absolute; float: right; border: none; background: none;"><i class="flaticon flaticon-minus icon-sm" aria-hidden="true"></i></button></li>';
       // $("#ListaLinks_" + this.instanceId).append(liItem);
-      Widget_Listagem_de_links.liEnderecos.push(enderecos[x]);
-      Widget_Listagem_de_links.liTitulos.push(titulos[x]);
-      Widget_Listagem_de_links.liIds.push(ids[x]);
+      Listagem_de_links.liEnderecos.push(enderecos[x]);
+      Listagem_de_links.liTitulos.push(titulos[x]);
+      Listagem_de_links.liIds.push(ids[x]);
     }
   },
 
   renderizarLinks: function () {
-    console.log(Widget_Listagem_de_links.liEnderecosView);
-    console.log(JSON.parse(Widget_Listagem_de_links.liEnderecosView));
-    var enderecos = JSON.parse(Widget_Listagem_de_links.liEnderecosView);
-    var titulos = JSON.parse(Widget_Listagem_de_links.liTitulosView);
-    var ids = JSON.parse(Widget_Listagem_de_links.liIdsView);
+    console.log(Listagem_de_links.liEnderecosView);
+    console.log(JSON.parse(Listagem_de_links.liEnderecosView));
+    var enderecos = JSON.parse(Listagem_de_links.liEnderecosView);
+    var titulos = JSON.parse(Listagem_de_links.liTitulosView);
+    var ids = JSON.parse(Listagem_de_links.liIdsView);
     for (var x = 0; x < enderecos.length; x++) {
       var element =
         '<a target="_blank" href=' +
@@ -241,16 +241,16 @@ var Widget_Listagem_de_links = SuperWidget.extend({
   removerLink: function (id) {
     $("#" + id).remove();
     /*
-	  var indice = Widget_Listagem_de_links.liItens.indexOf(id);
+	  var indice = Listagem_de_links.liItens.indexOf(id);
 	  if(indice > -1){
-		  Widget_Listagem_de_links.liItens.splice(indice,1);
+		  Listagem_de_links.liItens.splice(indice,1);
 	  }
 	  */
-    for (var i = Widget_Listagem_de_links.liIds.length - 1; i >= 0; --i) {
-      if (Widget_Listagem_de_links.liIds[i] == id) {
-        Widget_Listagem_de_links.liIds.splice(i, 1);
-        Widget_Listagem_de_links.liEnderecos.splice(i, 1);
-        Widget_Listagem_de_links.liTitulos.splice(i, 1);
+    for (var i = Listagem_de_links.liIds.length - 1; i >= 0; --i) {
+      if (Listagem_de_links.liIds[i] == id) {
+        Listagem_de_links.liIds.splice(i, 1);
+        Listagem_de_links.liEnderecos.splice(i, 1);
+        Listagem_de_links.liTitulos.splice(i, 1);
       }
     }
   },
@@ -277,10 +277,10 @@ var Widget_Listagem_de_links = SuperWidget.extend({
         dadosCampos.TituloURL +
         ' &nbsp;</a><button type="button" style="display: absolute; float: right; border: none; background: none;"><i class="flaticon flaticon-minus icon-sm" aria-hidden="true"></i></button></li>';
       $("#ListaLinks_" + this.instanceId).append(liItem);
-      //Widget_Listagem_de_links.liItens.push(dadosCampos);
-      Widget_Listagem_de_links.liEnderecos.push(dadosCampos.EnderecoURL);
-      Widget_Listagem_de_links.liTitulos.push(dadosCampos.TituloURL);
-      Widget_Listagem_de_links.liIds.push(that.contadorLink);
+      //Listagem_de_links.liItens.push(dadosCampos);
+      Listagem_de_links.liEnderecos.push(dadosCampos.EnderecoURL);
+      Listagem_de_links.liTitulos.push(dadosCampos.TituloURL);
+      Listagem_de_links.liIds.push(that.contadorLink);
 
       $("#EnderecoURL_" + this.instanceId).val("");
       $("#TituloURL_" + this.instanceId).val("");
@@ -302,9 +302,9 @@ var Widget_Listagem_de_links = SuperWidget.extend({
   saveParams: function (element, event) {
     var that = this;
     var preferences = {};
-    preferences.liEnderecos = Widget_Listagem_de_links.liEnderecos;
-    preferences.liTitulos = Widget_Listagem_de_links.liTitulos;
-    preferences.liIds = Widget_Listagem_de_links.liIds;
+    preferences.liEnderecos = Listagem_de_links.liEnderecos;
+    preferences.liTitulos = Listagem_de_links.liTitulos;
+    preferences.liIds = Listagem_de_links.liIds;
     preferences.contadorLinkView = parseInt(that.contadorLink);
 
     WCMSpaceAPI.PageService.UPDATEPREFERENCES(
